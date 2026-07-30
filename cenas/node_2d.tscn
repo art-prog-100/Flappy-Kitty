@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cev6oh04jblpo"]
+
+[ext_resource type="Script" uid="uid://6is5hvr8cyyf" path="res://codes/CharacterBody2d.cs" id="1_smc2o"]
+[ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_ulb1h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsrsk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikvx"]
+atlas = ExtResource("1_ulb1h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovvm4"]
+atlas = ExtResource("1_ulb1h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_410y7"]
+atlas = ExtResource("1_ulb1h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6snwf"]
+atlas = ExtResource("1_ulb1h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwqk8"]
+atlas = ExtResource("1_ulb1h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsrsk"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ikvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovvm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_410y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6snwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwqk8")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gxoi"]
+
+[node name="Node2D" type="Node2D" unique_id=1078830728]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=242947505]
+position = Vector2(30, 0)
+scale = Vector2(1.7019925, 1.7651557)
+script = ExtResource("1_smc2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=895573519]
+shape = SubResource("CircleShape2D_rsrsk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1159820980]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rsrsk")
+animation = &"new_animation"
+frame_progress = 0.15330233
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=418951855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=383507180]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_5gxoi")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_body_entered"]
