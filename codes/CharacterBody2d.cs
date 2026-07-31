@@ -3,7 +3,7 @@ using System;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
-	[Export] public float JumpCooldown = 0.5f; 
+	[Export] public float JumpCooldown = 0.25f; 
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -300.0f;
 
