@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bg1mupkitcw8x"]
+
+[ext_resource type="Script" uid="uid://bo7c78tbtmtt8" path="res://codes/Cano.cs" id="1_spwmd"]
+[ext_resource type="Texture2D" uid="uid://bubj586erup7c" path="res://sprites/Assets/cano.png" id="2_jtpof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsrsk"]
+size = Vector2(54, 257.93854)
+
+[node name="Cano" type="Node2D" unique_id=269903024]
+script = ExtResource("1_spwmd")
+
+[node name="CanoCima" type="Area2D" parent="." unique_id=1686231214]
+position = Vector2(130, 12)
+rotation = 0.0024814932
+scale = Vector2(1.1488255, 1.3158303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanoCima" unique_id=697315921]
+position = Vector2(3, -4.0307355)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_rsrsk")
+
+[node name="Sprite" type="Sprite2D" parent="CanoCima" unique_id=1101998158]
+position = Vector2(3.4731627, -3.0474398)
+rotation = -3.139857
+scale = Vector2(0.828125, 0.9882935)
+texture = ExtResource("2_jtpof")
+
+[node name="CanoCima2" type="Area2D" parent="." unique_id=990035881]
+position = Vector2(139, 428.99997)
+rotation = 3.1422431
+scale = Vector2(1.1488255, 1.3158303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanoCima2" unique_id=2098021332]
+position = Vector2(3, -4.0307355)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_rsrsk")
+
+[node name="Sprite" type="Sprite2D" parent="CanoCima2" unique_id=59553735]
+position = Vector2(3.4731627, -3.0474398)
+rotation = -3.139857
+scale = Vector2(0.828125, 0.9882935)
+texture = ExtResource("2_jtpof")

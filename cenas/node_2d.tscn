@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://6is5hvr8cyyf" path="res://codes/CharacterBody2d.cs" id="1_smc2o"]
 [ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_ulb1h"]
 [ext_resource type="Texture2D" uid="uid://uljfse3ptt6r" path="res://sprites/predios 1.png" id="4_ovvm4"]
+[ext_resource type="Script" uid="uid://d28ro0uk0layy" path="res://codes/CanoSpawner.cs" id="5_6snwf"]
+[ext_resource type="PackedScene" uid="uid://bg1mupkitcw8x" path="res://cenas/cano.tscn" id="6_lwqk8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsrsk"]
 
@@ -65,7 +67,7 @@ scale = Vector2(1.0138888, 1.0058594)
 texture = ExtResource("1_1ikvx")
 
 [node name="Predios1" type="Sprite2D" parent="." unique_id=1874694566]
-position = Vector2(145.50002, 321)
+position = Vector2(147, 390)
 scale = Vector2(1.0173612, 1)
 texture = ExtResource("4_ovvm4")
 
@@ -88,5 +90,11 @@ frame_progress = 0.29168835
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=383507180]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_5gxoi")
+
+[node name="CanoSpawner" type="Node2D" parent="." unique_id=1888139304]
+script = ExtResource("5_6snwf")
+CanoScene = ExtResource("6_lwqk8")
+
+[node name="Timer" type="Timer" parent="CanoSpawner" unique_id=1383845372]
 
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_body_entered"]
