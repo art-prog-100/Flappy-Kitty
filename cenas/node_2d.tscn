@@ -3,11 +3,45 @@
 [ext_resource type="Texture2D" uid="uid://btdhtm3t46yhn" path="res://sprites/cenario teste.png" id="1_1ikvx"]
 [ext_resource type="Script" uid="uid://6is5hvr8cyyf" path="res://codes/CharacterBody2d.cs" id="1_smc2o"]
 [ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_ulb1h"]
+[ext_resource type="Texture2D" uid="uid://dw77wxwufvdux" path="res://sprites/fall.png" id="4_dyv38"]
 [ext_resource type="Texture2D" uid="uid://uljfse3ptt6r" path="res://sprites/predios 1.png" id="4_ovvm4"]
 [ext_resource type="Script" uid="uid://d28ro0uk0layy" path="res://codes/CanoSpawner.cs" id="5_6snwf"]
+[ext_resource type="Texture2D" uid="uid://b4fy228g53jax" path="res://sprites/hit.png" id="5_fnnok"]
 [ext_resource type="PackedScene" uid="uid://bg1mupkitcw8x" path="res://cenas/cano.tscn" id="6_lwqk8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsrsk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhp86"]
+atlas = ExtResource("4_dyv38")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfyqd"]
+atlas = ExtResource("4_dyv38")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agkm1"]
+atlas = ExtResource("4_dyv38")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th6y3"]
+atlas = ExtResource("4_dyv38")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl83n"]
+atlas = ExtResource("5_fnnok")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nntq6"]
+atlas = ExtResource("5_fnnok")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sjri"]
+atlas = ExtResource("5_fnnok")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrj4f"]
+atlas = ExtResource("5_fnnok")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ikvx"]
 atlas = ExtResource("1_ulb1h")
@@ -34,6 +68,64 @@ animations = [{
 "frames": [],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhp86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfyqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agkm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th6y3")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl83n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nntq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sjri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrj4f")
+}],
+"loop": 1,
+"name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
@@ -82,10 +174,11 @@ shape = SubResource("CircleShape2D_rsrsk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1159820980]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rsrsk")
-animation = &"new_animation"
-frame_progress = 0.29168835
+animation = &"fall"
+frame_progress = 0.12097615
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=418951855]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=383507180]
 position = Vector2(0, -1)
@@ -97,4 +190,5 @@ CanoScene = ExtResource("6_lwqk8")
 
 [node name="Timer" type="Timer" parent="CanoSpawner" unique_id=1383845372]
 
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_body_entered"]
