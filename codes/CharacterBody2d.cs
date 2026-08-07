@@ -11,6 +11,9 @@ public partial class CharacterBody2d : CharacterBody2D
 	[Export] public float TopLimit = 0f;
 	[Export] public float BottomLimit = 500f;
 
+	// Arraste o game_over.tscn aqui pelo Inspector
+	[Export] public PackedScene GameOverScene;
+
 	private bool Isjumping = false;
 	private bool Canjump = true;
 	private bool isDead = false;
@@ -84,8 +87,16 @@ public partial class CharacterBody2d : CharacterBody2D
 			return;
 
 		isDead = true;
-		GD.Print("Game Over!");
+		GD.Print("Game Over! Tocando animação de dano...");
 		playerSprite.Play("hit");
+
+		 
+		Control gameOverUI = GameOverScene.Instantiate<Control>();
+		gameOverUI.ProcessMode = ProcessModeEnum.Always;
+		GetTree().CurrentScene.AddChild(gameOverUI);
+ 
 		GetTree().Paused = true;
 	}
+
+
 }

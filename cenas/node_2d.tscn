@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://6is5hvr8cyyf" path="res://codes/CharacterBody2d.cs" id="1_smc2o"]
 [ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_ulb1h"]
 [ext_resource type="Texture2D" uid="uid://dw77wxwufvdux" path="res://sprites/fall.png" id="4_dyv38"]
+[ext_resource type="PackedScene" uid="uid://2qbqgdy564h4" path="res://cenas/game_over.tscn" id="4_fnnok"]
 [ext_resource type="Texture2D" uid="uid://uljfse3ptt6r" path="res://sprites/predios 1.png" id="4_ovvm4"]
 [ext_resource type="Script" uid="uid://d28ro0uk0layy" path="res://codes/CanoSpawner.cs" id="5_6snwf"]
 [ext_resource type="Texture2D" uid="uid://b4fy228g53jax" path="res://sprites/hit.png" id="5_fnnok"]
@@ -167,6 +168,7 @@ texture = ExtResource("4_ovvm4")
 position = Vector2(28, 38)
 scale = Vector2(1.7019925, 1.7651557)
 script = ExtResource("1_smc2o")
+GameOverScene = ExtResource("4_fnnok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=895573519]
 shape = SubResource("CircleShape2D_rsrsk")
