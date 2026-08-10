@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://btdhtm3t46yhn" path="res://sprites/cenario teste.png" id="1_1ikvx"]
 [ext_resource type="Script" uid="uid://6is5hvr8cyyf" path="res://codes/CharacterBody2d.cs" id="1_smc2o"]
+[ext_resource type="FontFile" uid="uid://516rinitwtl8" path="res://fonts/unlearn2.ttf" id="1_uhp86"]
 [ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_ulb1h"]
 [ext_resource type="Texture2D" uid="uid://dw77wxwufvdux" path="res://sprites/fall.png" id="4_dyv38"]
 [ext_resource type="PackedScene" uid="uid://2qbqgdy564h4" path="res://cenas/game_over.tscn" id="4_fnnok"]
@@ -9,6 +10,10 @@
 [ext_resource type="Script" uid="uid://d28ro0uk0layy" path="res://codes/CanoSpawner.cs" id="5_6snwf"]
 [ext_resource type="Texture2D" uid="uid://b4fy228g53jax" path="res://sprites/hit.png" id="5_fnnok"]
 [ext_resource type="PackedScene" uid="uid://bg1mupkitcw8x" path="res://cenas/cano.tscn" id="6_lwqk8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsrsk"]
+font = ExtResource("1_uhp86")
+font_size = 26
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsrsk"]
 
@@ -152,7 +157,20 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gxoi"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyct4"]
+
 [node name="Node2D" type="Node2D" unique_id=1078830728]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522449383]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=874647941]
+offset_left = 256.0
+offset_top = 1.0
+offset_right = 296.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 24
+text = "0"
+label_settings = SubResource("LabelSettings_rsrsk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=561997741]
 position = Vector2(145, 257.5)
@@ -164,11 +182,12 @@ position = Vector2(147, 390)
 scale = Vector2(1.0173612, 1)
 texture = ExtResource("4_ovvm4")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=242947505]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=242947505 node_paths=PackedStringArray("ScoreLabel")]
 position = Vector2(28, 38)
 scale = Vector2(1.7019925, 1.7651557)
 script = ExtResource("1_smc2o")
 GameOverScene = ExtResource("4_fnnok")
+ScoreLabel = NodePath("../CanvasLayer/ScoreLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=895573519]
 shape = SubResource("CircleShape2D_rsrsk")
@@ -186,6 +205,12 @@ collision_mask = 2
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_5gxoi")
 
+[node name="Contador" type="Area2D" parent="CharacterBody2D" unique_id=673045856]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Contador" unique_id=846284307]
+shape = SubResource("CircleShape2D_gyct4")
+
 [node name="CanoSpawner" type="Node2D" parent="." unique_id=1888139304]
 script = ExtResource("5_6snwf")
 CanoScene = ExtResource("6_lwqk8")
@@ -194,3 +219,4 @@ CanoScene = ExtResource("6_lwqk8")
 
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_body_entered"]
+[connection signal="area_entered" from="CharacterBody2D/Contador" to="CharacterBody2D" method="_on_contador_area_entered"]

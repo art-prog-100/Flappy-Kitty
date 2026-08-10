@@ -14,6 +14,14 @@ public partial class CharacterBody2d : CharacterBody2D
 	// Arraste o game_over.tscn aqui pelo Inspector
 	[Export] public PackedScene GameOverScene;
 
+	// Arraste o Label de pontuação aqui pelo Inspector
+	[Export] public Label ScoreLabel;
+
+	// Arraste o nó CanoSpawner aqui pelo Inspector
+	[Export] public CanoSpawner Spawner;
+
+	private int score = 0;
+
 	private bool Isjumping = false;
 	private bool Canjump = true;
 	private bool isDead = false;
@@ -23,6 +31,10 @@ public partial class CharacterBody2d : CharacterBody2D
 	public override void _Ready()
 	{
 		playerSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		score = 0;
+		if (ScoreLabel != null)
+			ScoreLabel.Text = score.ToString();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -79,6 +91,17 @@ public partial class CharacterBody2d : CharacterBody2D
 	private void _on_body_entered(Node2D body)
 	{
 		GameOver();
+	}
+
+	private void _on_contador_area_entered(Area2D area)
+	{
+		if (isDead)
+			return;
+
+		score++;
+		ScoreLabel.Text = score.ToString();
+
+		Spawner?.AumentarDificuldade(score);
 	}
 
 	private void GameOver()

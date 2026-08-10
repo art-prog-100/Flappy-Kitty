@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsrsk"]
 size = Vector2(54, 257.93854)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gxoi"]
+size = Vector2(42, 86)
+
 [node name="Cano" type="Node2D" unique_id=269903024]
 script = ExtResource("1_spwmd")
 
@@ -42,3 +45,10 @@ position = Vector2(3.4731627, -3.0474398)
 rotation = -3.139857
 scale = Vector2(0.828125, 0.9882935)
 texture = ExtResource("2_jtpof")
+
+[node name="ZonaPontuacao" type="Area2D" parent="." unique_id=2019064618]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaPontuacao" unique_id=1428872147]
+position = Vector2(144, 221)
+shape = SubResource("RectangleShape2D_5gxoi")
