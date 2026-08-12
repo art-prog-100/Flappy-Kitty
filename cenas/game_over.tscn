@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://2qbqgdy564h4"]
 
-[ext_resource type="Script" uid="uid://cka8o8ns6dck0" path="res://cenas/GameOver.cs" id="1_sc4lk"]
+[ext_resource type="Script" uid="uid://cka8o8ns6dck0" path="res://codes/GameOver.cs" id="1_sc4lk"]
+[ext_resource type="FontFile" uid="uid://516rinitwtl8" path="res://fonts/unlearn2.ttf" id="2_un0q3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq5v8"]
+font = ExtResource("2_un0q3")
+font_size = 30
 
 [node name="GAME OVER" type="Control" unique_id=1191667989]
 layout_mode = 3
@@ -19,13 +24,14 @@ anchor_left = 0.5
 anchor_top = 0.44700003
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -69.86401
-offset_right = 43.0
-offset_bottom = -35.0
+offset_left = -77.0
+offset_top = -61.864014
+offset_right = 70.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "GAME OVER"
+label_settings = SubResource("LabelSettings_wq5v8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1133938995]
 layout_mode = 0
