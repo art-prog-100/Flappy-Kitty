@@ -217,7 +217,6 @@ shape = SubResource("CircleShape2D_gyct4")
 z_index = 5
 position = Vector2(0, 411)
 script = ExtResource("9_agkm1")
-TileWidth = null
 Chao1 = NodePath("Chao1")
 Chao2 = NodePath("Chao2")
 
@@ -231,7 +230,6 @@ z_index = 5
 position = Vector2(-1, 0)
 texture = ExtResource("11_tfyqd")
 centered = false
-offset = Vector2(288, 0)
 
 [node name="CanoSpawner" type="Node2D" parent="." unique_id=1888139304]
 script = ExtResource("5_6snwf")
