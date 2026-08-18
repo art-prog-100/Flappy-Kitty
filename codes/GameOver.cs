@@ -17,9 +17,10 @@ public partial class GameOver : Control
 	 }
  
 	 private void _on_exit_pressed()
-	 {
-		 GetTree().Quit();
-	 }
+	{
+		GetTree().Paused = false;
+		GetTree().ChangeSceneToFile("res://cenas/menu.tscn");
+	}
  
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

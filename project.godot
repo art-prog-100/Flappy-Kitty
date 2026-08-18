@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flappy Kitty"
-run/main_scene="res://cenas/node_2d.tscn"
+run/main_scene="uid://c8f3dmlfc3mft"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

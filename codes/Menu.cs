@@ -8,8 +8,17 @@ public partial class Menu : Control
 	{
 		GetNode<AnimatedSprite2D>(".").Play("default");
 
+	} 
+
+	private void _on_play_pressed()
+	{
+		GetTree().ChangeSceneToFile("res://cenas/node_2d.tscn");
 	}
 
+	private void _on_exit_pressed()
+	{
+		GetTree().Quit();
+	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
