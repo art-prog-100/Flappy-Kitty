@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://c8f3dmlfc3mft"]
+
+[ext_resource type="Texture2D" uid="uid://bralthypg0boj" path="res://sprites/flappy cat2.png" id="1_64url"]
+[ext_resource type="Script" uid="uid://cpgynhrg81o4r" path="res://codes/Menu.cs" id="1_qcnrj"]
+[ext_resource type="Texture2D" uid="uid://btdhtm3t46yhn" path="res://sprites/cenario teste.png" id="1_qvcyk"]
+[ext_resource type="Texture2D" uid="uid://uljfse3ptt6r" path="res://sprites/predios 1.png" id="2_nxpqr"]
+[ext_resource type="Script" uid="uid://blb5o6f2lcytm" path="res://codes/ChaoScroll.cs" id="4_qcnrj"]
+[ext_resource type="Texture2D" uid="uid://brlaty7u2uq6b" path="res://sprites/chão.png" id="5_qygre"]
+[ext_resource type="FontFile" uid="uid://516rinitwtl8" path="res://fonts/unlearn2.ttf" id="6_nxpqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbnbt"]
+atlas = ExtResource("1_64url")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsu4v"]
+atlas = ExtResource("1_64url")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmoso"]
+atlas = ExtResource("1_64url")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsrsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbnbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsu4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmoso")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsrsk"]
+line_spacing = 2.0
+font = ExtResource("6_nxpqr")
+font_size = 35
+
+[node name="Menu" type="Control" unique_id=851425207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcnrj")
+
+[node name="ceu" type="Sprite2D" parent="." unique_id=727595358]
+position = Vector2(145, 257.5)
+scale = Vector2(1.0138888, 1.0058594)
+texture = ExtResource("1_qvcyk")
+
+[node name="Predios1" type="Sprite2D" parent="." unique_id=5620164]
+position = Vector2(146.00002, 359)
+scale = Vector2(1.0173612, 1)
+texture = ExtResource("2_nxpqr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1642484208]
+position = Vector2(151, 164)
+scale = Vector2(2.8125, 2.6406248)
+sprite_frames = SubResource("SpriteFrames_rsrsk")
+frame = 2
+frame_progress = 1.0
+
+[node name="ChaoScroll" type="Node2D" parent="." unique_id=134221990 node_paths=PackedStringArray("Chao1", "Chao2")]
+z_index = 5
+position = Vector2(0, 464)
+script = ExtResource("4_qcnrj")
+Chao1 = NodePath("Chao1")
+Chao2 = NodePath("Chao2")
+
+[node name="Chao1" type="Sprite2D" parent="ChaoScroll" unique_id=1354588128]
+z_index = 5
+texture = ExtResource("5_qygre")
+centered = false
+
+[node name="Chao2" type="Sprite2D" parent="ChaoScroll" unique_id=1629504259]
+z_index = 5
+position = Vector2(-1, 0)
+texture = ExtResource("5_qygre")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=1833780729]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 73.0
+offset_right = 115.0
+offset_bottom = 108.0
+grow_horizontal = 2
+text = "FLAPPY KITTY"
+label_settings = SubResource("LabelSettings_rsrsk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=78333974]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 211.00002
+offset_right = 126.0
+offset_bottom = 312.0
+scale = Vector2(2.6639447, 1.7571864)
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=336076893]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_nxpqr")
+text = "Play
+"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=508417932]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_nxpqr")
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=753502961]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_nxpqr")
+text = "Exit"

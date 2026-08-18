@@ -75,9 +75,9 @@ public partial class CharacterBody2d : CharacterBody2D
 			Position = new Vector2(Position.X, TopLimit);
 			Velocity = new Vector2(Velocity.X, 0);
 		}
-
+		//teste
 		// Encostou perto do chão/fora da tela por baixo = game over
-		if (Position.Y > BottomLimit)
+		if (Position.Y + 57.5 > BottomLimit)
 		{
 			GameOver();
 		}

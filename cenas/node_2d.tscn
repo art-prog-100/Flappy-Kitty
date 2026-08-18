@@ -180,7 +180,7 @@ scale = Vector2(1.0138888, 1.0058594)
 texture = ExtResource("1_1ikvx")
 
 [node name="Predios1" type="Sprite2D" parent="." unique_id=1874694566]
-position = Vector2(149.00002, 365)
+position = Vector2(146.00002, 359)
 scale = Vector2(1.0173612, 1)
 texture = ExtResource("4_ovvm4")
 
@@ -215,7 +215,7 @@ shape = SubResource("CircleShape2D_gyct4")
 
 [node name="ChaoScroll" type="Node2D" parent="." unique_id=1934841777 node_paths=PackedStringArray("Chao1", "Chao2")]
 z_index = 5
-position = Vector2(0, 411)
+position = Vector2(0, 464)
 script = ExtResource("9_agkm1")
 Chao1 = NodePath("Chao1")
 Chao2 = NodePath("Chao2")

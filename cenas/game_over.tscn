@@ -35,17 +35,21 @@ label_settings = SubResource("LabelSettings_wq5v8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1133938995]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 206.0
-offset_right = 192.0
-offset_bottom = 272.0
+offset_left = 70.0
+offset_top = 203.0
+offset_right = 207.0
+offset_bottom = 275.0
 
 [node name="PLAY AGAIN" type="Button" parent="VBoxContainer" unique_id=835000138]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_un0q3")
+theme_override_font_sizes/font_size = 25
 text = "PLAY AGAIN"
 
 [node name="EXIT" type="Button" parent="VBoxContainer" unique_id=1386681920]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_un0q3")
+theme_override_font_sizes/font_size = 25
 text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/PLAY AGAIN" to="." method="_on_play_again_pressed"]

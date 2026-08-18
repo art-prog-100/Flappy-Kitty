@@ -19,10 +19,16 @@ flappy-kitty/
 ├── cenas/               # Cenas do Godot (.tscn)
 │   ├── node_2d.tscn      # Cena principal (jogador, cenário, spawner)
 │   └── cano.tscn         # Cena do par de canos (obstáculo)
+│   ├── game_over.tscn    # Cena prototipo para quando o jogador perder
+│   └── menu.tscn         # Cena de inicio do jogo
 ├── codes/                # Scripts em C#
 │   ├── CharacterBody2d.cs   # Movimento, pulo, limites de tela e game over
 │   ├── Cano.cs               # Movimento e auto-destruição do cano
 │   └── CanoSpawner.cs        # Geração procedural dos canos
+│   ├── ChaoScroll.cs         # Movimento do chao do cenario
+│   ├── GameOver.cs           # codigo para os botões do game over     
+│   └── Menu.cs               # codigo inicial menu
+├── fonts/              # fontes de texto personalizadas para o jogo
 ├── sprites/              # Imagens e spritesheets
 ├── project.godot         # Arquivo de configuração do Godot
 ├── Flappy Kitty.csproj    # Projeto C#/.NET
@@ -45,12 +51,12 @@ flappy-kitty/
 - [x] Limite vertical de tela (jogador não sai por cima; cair demais gera game over)
 - [x] Detecção de colisão jogador x canos (via `Area2D` + camadas de colisão separadas)
 - [x] Game over (congela a cena e toca animação de "hit")
-- [ ] Reiniciar o jogo após o game over
-- [ ] Sistema de pontuação
+- [x] Reiniciar o jogo após o game over
+- [x] Sistema de pontuação
 - [ ] Tela/UI de game over
 - [ ] Ícone customizado
 - [ ] Sprites e animações finais
-- [ ] Ajuste de dificuldade progressiva (velocidade/abertura dos canos)
+- [x] Ajuste de dificuldade progressiva (velocidade/abertura dos canos)
 
 ## 🧠 Decisões técnicas
 
