@@ -15,6 +15,11 @@ public partial class Menu : Control
 		GetTree().ChangeSceneToFile("res://cenas/node_2d.tscn");
 	}
 
+	private void _on_score_pressed()
+	{
+		
+	}
+
 	private void _on_exit_pressed()
 	{
 		GetTree().Quit();

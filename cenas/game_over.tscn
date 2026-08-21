@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cka8o8ns6dck0" path="res://codes/GameOver.cs" id="1_sc4lk"]
 [ext_resource type="FontFile" uid="uid://516rinitwtl8" path="res://fonts/unlearn2.ttf" id="2_un0q3"]
 
-[node name="GAME OVER" type="Control" unique_id=1191667989]
+[node name="GAME OVER" type="Control" unique_id=1191667989 node_paths=PackedStringArray("ScoreLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,11 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sc4lk")
+ScoreLabel = NodePath("Label")
 
 [node name="Panel" type="Panel" parent="." unique_id=1261799091]
 layout_mode = 0
 offset_left = 53.0
-offset_top = 177.0
+offset_top = 117.0
 offset_right = 222.0
 offset_bottom = 306.0
 
@@ -37,6 +38,16 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_un0q3")
 theme_override_font_sizes/font_size = 25
 text = "EXIT"
+
+[node name="Label" type="Label" parent="." unique_id=168317605]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 149.0
+offset_right = 204.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_un0q3")
+theme_override_font_sizes/font_size = 25
+text = "YOUR SCORE:"
 
 [connection signal="pressed" from="VBoxContainer/PLAY AGAIN" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/EXIT" to="." method="_on_exit_pressed"]

@@ -75,9 +75,9 @@ public partial class CharacterBody2d : CharacterBody2D
 			Position = new Vector2(Position.X, TopLimit);
 			Velocity = new Vector2(Velocity.X, 0);
 		}
-		//teste
+
 		// Encostou perto do chão/fora da tela por baixo = game over
-		if (Position.Y + 57.5 > BottomLimit)
+		if (Position.Y > BottomLimit)
 		{
 			GameOver();
 		}
@@ -113,11 +113,20 @@ public partial class CharacterBody2d : CharacterBody2D
 		GD.Print("Game Over! Tocando animação de dano...");
 		playerSprite.Play("hit");
 
-		 
+		// Salva a pontuação (se o ScoreManager estiver configurado como Autoload)
+		var scoreManager = GetNodeOrNull("/root/ScoreManager");
+		scoreManager?.Call("EnviarPontuacao", score);
+
 		Control gameOverUI = GameOverScene.Instantiate<Control>();
 		gameOverUI.ProcessMode = ProcessModeEnum.Always;
 		GetTree().CurrentScene.AddChild(gameOverUI);
- 
+
+		// Entrega a pontuação final pra tela de game over mostrar
+		if (gameOverUI is GameOver gameOverScript)
+		{
+			gameOverScript.MostrarResultado(score);
+		}
+
 		GetTree().Paused = true;
 	}
 
