@@ -17,7 +17,7 @@ public partial class GameOver : Control
 	public void MostrarResultado(int pontuacaoFinal)
 	{
 		if (ScoreLabel != null)
-			ScoreLabel.Text = "Your Score:" + pontuacaoFinal;
+			ScoreLabel.Text = "Your Score: " + pontuacaoFinal;
 	}
 	 private void _on_play_again_pressed()
 	 {

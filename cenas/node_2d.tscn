@@ -188,6 +188,7 @@ texture = ExtResource("4_ovvm4")
 position = Vector2(28, 38)
 scale = Vector2(1.7019925, 1.7651557)
 script = ExtResource("1_smc2o")
+BottomLimit = 450.0
 GameOverScene = ExtResource("4_fnnok")
 ScoreLabel = NodePath("../CanvasLayer/ScoreLabel")
 Spawner = NodePath("../CanoSpawner")

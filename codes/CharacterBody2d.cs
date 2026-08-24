@@ -9,7 +9,7 @@ public partial class CharacterBody2d : CharacterBody2D
 
 	// Limites verticais da tela (viewport é 288x512)
 	[Export] public float TopLimit = 0f;
-	[Export] public float BottomLimit = 500f;
+	[Export] public float BottomLimit = 450f;
 
 	// Arraste o game_over.tscn aqui pelo Inspector
 	[Export] public PackedScene GameOverScene;
