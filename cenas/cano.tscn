@@ -50,5 +50,5 @@ texture = ExtResource("2_jtpof")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaPontuacao" unique_id=1428872147]
-position = Vector2(144, 221)
+position = Vector2(159, 220)
 shape = SubResource("RectangleShape2D_5gxoi")
